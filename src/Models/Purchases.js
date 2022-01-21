@@ -1,20 +1,24 @@
 import db from '../Configs/Sequelize';
 
-import Products from './Products';
+import Suppliers from './Suppliers';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
 
-class Stock extends Model {}
+class Purchases extends Model {}
 
-Stock.init(
+Purchases.init(
   {
     Id: {
       primaryKey: true,
       type: DataTypes.BIGINT,
       autoIncrement: true,
     },
-    StockValue: {
+    Quantity: {
+      allowNull: false,
+      type: DataTypes.NUMBER,
+    },
+    PurchasePrice: {
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
@@ -22,30 +26,26 @@ Stock.init(
       allowNull: false,
       type: DataTypes.BOOLEAN,
     },
-    NameSupplier: {
-      allowNull: false,
-      type: DataTypes.STRING(100),
-    },
   },
   {
     sequelize,
     timestamps: false,
-    tableName: 'Stock',
+    tableName: 'Purchases',
   }
 );
 
-Stock.Products = Stock.hasMany(Products, {
+Suppliers.Purchases = Suppliers.hasMany(Purchases, {
   foreignKey: {
-    name: 'IdProduct',
+    name: 'IdSupplier',
     allowNull: false,
   },
 });
 
-Products.Stock = Products.belongsTo(Stock, {
+Purchases.Suppliers = Purchases.belongsTo(Suppliers, {
   foreignKey: {
-    name: 'IdProduct',
+    name: 'IdSupplier',
     allowNull: false,
   },
 });
 
-export default Stock;
+export default Purchases;

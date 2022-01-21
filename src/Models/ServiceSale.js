@@ -39,7 +39,7 @@ ServiceSale.Customers = ServiceSale.belongsTo(Customers, {
 
 Customers.ServiceSale = Customers.hasMany(ServiceSale, {
   foreignKey: {
-    name: 'Id',
+    name: 'IdCustomer',
     allowNull: false,
   },
 });

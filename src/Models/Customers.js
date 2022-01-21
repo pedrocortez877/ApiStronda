@@ -47,7 +47,7 @@ Customers.Adresses = Customers.hasOne(Adresses, {
 
 Adresses.Customers = Adresses.belongsTo(Customers, {
   foreignKey: {
-    name: 'Id',
+    name: 'IdAdress',
     allowNull: false,
   },
 });
