@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import ExceptionHandler from './Configs/ExceptionHandler.js';
 import Routes from './Routes.js';
@@ -13,6 +14,7 @@ class App {
     this.routes();
     this.exceptionHandler();
     this.database();
+    dotenv.config();
   }
 
   middlewares() {
