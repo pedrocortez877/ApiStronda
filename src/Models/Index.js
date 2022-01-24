@@ -1,15 +1,15 @@
-import Adresses from './Adresses';
-import Brands from './Brands';
-import Customers from './Customers';
-import Products from './Products';
-import ProductSale from './ProductSale';
-import ProductsOfASale from './ProductsOfASale';
-import ProductsOfAService from './ProductsOfAService';
-import Purchases from './Purchases';
-import ServiceSale from './ServiceSale';
-import Stock from './Stock';
-import Suppliers from './Suppliers';
-import Users from './Users';
+import Adresses from './Adresses.js';
+import Brands from './Brands.js';
+import Customers from './Customers.js';
+import Products from './Products.js';
+import ProductSale from './ProductSale.js';
+import ProductsOfASale from './ProductsOfASale.js';
+import ProductsOfAService from './ProductsOfAService.js';
+import Purchases from './Purchases.js';
+import ServiceSale from './ServiceSale.js';
+import Stock from './Stock.js';
+import Suppliers from './Suppliers.js';
+import Users from './Users.js';
 
 const Models = [
   Adresses,

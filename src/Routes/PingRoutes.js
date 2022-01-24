@@ -8,3 +8,5 @@ routes.get('/', (req, res) => {
     health: 'Ok',
   });
 });
+
+export default routes;

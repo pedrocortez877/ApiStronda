@@ -1,4 +1,4 @@
-import db from '../Configs/Sequelize';
+import db from '../Configs/Sequelize.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;

@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import UserRoute from './Routes/UserRoutes';
-import PingRoute from './Routes/PingRoutes';
+import UserRoute from './Routes/UserRoutes.js';
+import PingRoute from './Routes/PingRoutes.js';
 
-import Auth from './Middlewares/Auth';
+import Auth from './Middlewares/Auth.js';
 
 const routes = Router();
 

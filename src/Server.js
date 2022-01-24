@@ -1,4 +1,4 @@
-import App from './App';
+import App from './App.js';
 
 const server = App.listen(3000, () => {
   console.log(

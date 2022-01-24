@@ -1,4 +1,4 @@
-import Users from '../Models/Users';
+import Users from '../Models/Users.js';
 
 class UserRepository {
   async getUser(data) {

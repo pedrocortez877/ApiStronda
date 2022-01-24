@@ -1,6 +1,8 @@
-import { sign } from 'jsonwebtoken';
+import pkg from 'jsonwebtoken';
 
-import UserRepository from '../Repositories/UserRepository';
+import UserRepository from '../Repositories/UserRepository.js';
+
+const { sign } = pkg;
 
 class UserService {
   async login(data) {

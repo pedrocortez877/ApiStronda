@@ -20,6 +20,7 @@
         "prettier/prettier": "error",
         "no-console": "off",
         "consistent-return": "off",
-        "no-template-curly-in-string": "off"
+        "no-template-curly-in-string": "off",
+        "import/extensions": "off"
     }
 }
