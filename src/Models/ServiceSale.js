@@ -1,6 +1,6 @@
 import db from '../Configs/Sequelize.js';
 
-import Customers from './Customers';
+import Customers from './Customers.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;

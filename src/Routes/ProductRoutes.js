@@ -12,3 +12,5 @@ routes.post('/', CreateProductValidator, ProductController.create);
 routes.get('/', ProductController.read);
 routes.put('/', UpdateProductValidator, ProductController.update);
 routes.delete('/', DeleteProductValidator, ProductController.delete);
+
+export default routes;

@@ -1,7 +1,7 @@
 import db from '../Configs/Sequelize.js';
 
-import Products from './Products';
-import ProductSale from './ProductSale';
+import Products from './Products.js';
+import ProductSale from './ProductSale.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;

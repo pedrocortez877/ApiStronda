@@ -1,6 +1,6 @@
 import db from '../Configs/Sequelize.js';
 
-import Suppliers from './Suppliers';
+import Suppliers from './Suppliers.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;

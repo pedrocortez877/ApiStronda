@@ -1,6 +1,6 @@
 import db from '../Configs/Sequelize.js';
 
-import Brands from './Brands';
+import Brands from './Brands.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
