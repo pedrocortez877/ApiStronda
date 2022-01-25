@@ -1,4 +1,4 @@
-import yup from '../Helpers/Yup.js';
+import yup from '../../Helpers/Yup.js';
 
 export default (req, res, next) => {
   const schema = yup.object().shape({

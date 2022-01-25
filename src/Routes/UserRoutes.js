@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import UserController from '../Controllers/UserController.js';
 
-import UserValidator from '../Validators/UserValidator.js';
+import UserValidator from '../Validators/Users/UserValidator.js';
 
 const routes = new Router();
 
