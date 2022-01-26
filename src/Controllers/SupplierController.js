@@ -1,12 +1,12 @@
-import AddressService from '../Services/AddressService.js';
+import SupplierService from '../Services/SupplierService.js';
 
-class AddressController {
+class SupplierController {
   async create(req, res) {
     const data = req.body;
 
-    const address = await AddressService.create(data);
+    const supplier = await SupplierService.create(data);
 
-    if (!address) {
+    if (!supplier) {
       return res.status(400).json({
         message: 'Ocorreu um erro ao tentar cadastrar um novo endereço',
       });
@@ -16,17 +16,17 @@ class AddressController {
   }
 
   async read(req, res) {
-    const addresses = await AddressService.read();
+    const suppliers = await SupplierService.read();
 
-    return res.status(200).json(addresses);
+    return res.status(200).json(suppliers);
   }
 
   async update(req, res) {
     const data = req.body;
 
-    const updatedAddress = await AddressService.update(data);
+    const updatedSupplier = await SupplierService.update(data);
 
-    if (!updatedAddress) {
+    if (!updatedSupplier) {
       return res.status(400).json({
         message: 'Erro ao atualizar marca',
       });
@@ -38,9 +38,9 @@ class AddressController {
   async delete(req, res) {
     const data = req.query;
 
-    const deletedAddress = await AddressService.delete(data);
+    const deletedSupplier = await SupplierService.delete(data);
 
-    if (!deletedAddress) {
+    if (!deletedSupplier) {
       return res.status(400).json({
         message: 'Erro ao deletar endereço',
       });
@@ -50,4 +50,4 @@ class AddressController {
   }
 }
 
-export default new AddressController();
+export default new SupplierController();
