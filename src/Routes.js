@@ -9,6 +9,7 @@ import CustomerRoutes from './Routes/CustomerRoutes.js';
 import ProductSaleRoutes from './Routes/ProductSaleRoutes.js';
 import ServiceSaleRoutes from './Routes/ServiceSaleRoutes.js';
 import SupplierRoutes from './Routes/SupplierRoutes.js';
+import StockRoutes from './Routes/StockRoutes.js';
 
 import Auth from './Middlewares/Auth.js';
 
@@ -40,5 +41,8 @@ routes.use('/serviceSales', Auth, ServiceSaleRoutes);
 
 // ROTAS DE FORNECEDORES
 routes.use('/suppliers', Auth, SupplierRoutes);
+
+// ROTAS DE ESTOQUE
+routes.use('/stocks', Auth, StockRoutes);
 
 export default routes;
