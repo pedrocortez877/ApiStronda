@@ -2,9 +2,9 @@ import { Router } from 'express';
 
 import ProductController from '../Controllers/ProductController.js';
 
-import CreateProductValidator from '../Validators/Products/CreateProductValidator.js';
-import UpdateProductValidator from '../Validators/Products/UpdateProductValidator.js';
-import DeleteProductValidator from '../Validators/Products/DeleteProductValidator.js';
+import CreateProductValidator from '../Validators/Product/CreateProductValidator.js';
+import UpdateProductValidator from '../Validators/Product/UpdateProductValidator.js';
+import DeleteProductValidator from '../Validators/Product/DeleteProductValidator.js';
 
 const routes = Router();
 

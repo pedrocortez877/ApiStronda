@@ -2,9 +2,9 @@ import { Router } from 'express';
 
 import BrandController from '../Controllers/BrandController.js';
 
-import CreateBrandValidator from '../Validators/Brands/CreateBrandValidator.js';
-import UpdateBrandValidator from '../Validators/Brands/UpdateBrandValidator.js';
-import DeleteBrandValidator from '../Validators/Brands/DeleteBrandValidator.js';
+import CreateBrandValidator from '../Validators/Brand/CreateBrandValidator.js';
+import UpdateBrandValidator from '../Validators/Brand/UpdateBrandValidator.js';
+import DeleteBrandValidator from '../Validators/Brand/DeleteBrandValidator.js';
 
 const routes = Router();
 
