@@ -8,7 +8,7 @@ class ProductSaleController {
 
     if (!productSale) {
       return res.status(400).json({
-        message: 'Ocorreu um erro ao tentar cadastrar um novo produto',
+        message: 'Ocorreu um erro ao tentar cadastrar uma venda de produto',
       });
     }
 
