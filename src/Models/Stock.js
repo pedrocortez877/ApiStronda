@@ -1,6 +1,7 @@
 import db from '../Configs/Sequelize.js';
 
 import Products from './Products.js';
+import Suppliers from './Suppliers.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
@@ -22,10 +23,6 @@ Stock.init(
       allowNull: false,
       type: DataTypes.BOOLEAN,
     },
-    NameSupplier: {
-      allowNull: false,
-      type: DataTypes.STRING(100),
-    },
   },
   {
     sequelize,
@@ -44,6 +41,20 @@ Stock.Products = Stock.hasMany(Products, {
 Products.Stock = Products.belongsTo(Stock, {
   foreignKey: {
     name: 'IdProduct',
+    allowNull: false,
+  },
+});
+
+Stock.Suppliers = Stock.belongsTo(Suppliers, {
+  foreignKey: {
+    name: 'IdSupplier',
+    allowNull: false,
+  },
+});
+
+Suppliers.Stock = Suppliers.hasMany(Stock, {
+  foreignKey: {
+    name: 'IdSupplier',
     allowNull: false,
   },
 });
