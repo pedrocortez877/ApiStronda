@@ -12,7 +12,7 @@ class BrandController {
       });
     }
 
-    return res.status(201);
+    return res.status(201).json({ message: 'OK' });
   }
 
   async read(req, res) {
@@ -32,11 +32,11 @@ class BrandController {
       });
     }
 
-    return res.status(200).json(updatedBrand);
+    return res.status(200).json({ message: 'OK' });
   }
 
   async delete(req, res) {
-    const data = req.body;
+    const data = req.query;
 
     const deletedBrand = await BrandService.delete(data);
 
@@ -46,7 +46,7 @@ class BrandController {
       });
     }
 
-    return res.status(204);
+    return res.status(204).json({ message: 'OK' });
   }
 }
 

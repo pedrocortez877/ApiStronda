@@ -7,7 +7,7 @@ class BrandService {
   }
 
   async read() {
-    const brand = await BrandRepository.findAll();
+    const brand = await BrandRepository.read();
     return brand;
   }
 
