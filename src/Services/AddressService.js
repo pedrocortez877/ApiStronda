@@ -7,8 +7,8 @@ class AddressService {
   }
 
   async read() {
-    const address = await AddressRepository.read();
-    return address;
+    const addresses = await AddressRepository.read();
+    return addresses;
   }
 
   async update(data) {
