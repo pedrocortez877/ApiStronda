@@ -5,6 +5,7 @@ import PingRoute from './Routes/PingRoutes.js';
 import ProductRoutes from './Routes/ProductRoutes.js';
 import BrandRoutes from './Routes/BrandRoutes.js';
 import AddressRoutes from './Routes/AddressRoutes.js';
+import CustomerRoutes from './Routes/CustomerRoutes.js';
 
 import Auth from './Middlewares/Auth.js';
 
@@ -23,6 +24,9 @@ routes.use('/products', Auth, ProductRoutes);
 routes.use('/brands', Auth, BrandRoutes);
 
 // ROTAS DE ENDERECOS
-routes.use('/address', Auth, AddressRoutes);
+routes.use('/addresses', Auth, AddressRoutes);
+
+// ROTAS DE CLIENTES
+routes.use('/customers', Auth, CustomerRoutes);
 
 export default routes;
