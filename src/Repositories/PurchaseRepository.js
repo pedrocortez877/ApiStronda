@@ -2,8 +2,8 @@ import Purchases from '../Models/Purchases.js';
 
 class PurchaseRepository {
   async create(data) {
-    const purchases = await Purchases.create(data);
-    return purchases;
+    const purchase = await Purchases.create(data);
+    return purchase;
   }
 
   async read() {
@@ -13,14 +13,14 @@ class PurchaseRepository {
 
   async update(data) {
     const { Id } = data;
-    const updatedPurchases = await Purchases.update(data, { where: { Id } });
-    return updatedPurchases;
+    const updatedPurchase = await Purchases.update(data, { where: { Id } });
+    return updatedPurchase;
   }
 
   async delete(data) {
     const { Id } = data;
-    const deletedPurchases = await Purchases.destroy({ where: { Id } });
-    return deletedPurchases;
+    const deletedPurchase = await Purchases.destroy({ where: { Id } });
+    return deletedPurchase;
   }
 }
 
