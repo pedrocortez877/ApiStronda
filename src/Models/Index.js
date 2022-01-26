@@ -1,4 +1,4 @@
-import Adresses from './Adresses.js';
+import Addresses from './Addresses.js';
 import Brands from './Brands.js';
 import Customers from './Customers.js';
 import Products from './Products.js';
@@ -12,7 +12,7 @@ import Suppliers from './Suppliers.js';
 import Users from './Users.js';
 
 const Models = [
-  Adresses,
+  Addresses,
   Brands,
   Customers,
   Products,

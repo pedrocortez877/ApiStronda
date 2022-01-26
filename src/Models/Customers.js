@@ -1,6 +1,6 @@
 import db from '../Configs/Sequelize.js';
 
-import Adresses from './Adresses.js';
+import Addresses from './Addresses.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
@@ -38,14 +38,14 @@ Customers.init(
   }
 );
 
-Customers.Adresses = Customers.hasOne(Adresses, {
+Customers.Addresses = Customers.hasOne(Addresses, {
   foreignKey: {
     name: 'IdAdress',
     allowNull: false,
   },
 });
 
-Adresses.Customers = Adresses.belongsTo(Customers, {
+Addresses.Customers = Addresses.belongsTo(Customers, {
   foreignKey: {
     name: 'IdAdress',
     allowNull: false,

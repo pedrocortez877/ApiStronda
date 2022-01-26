@@ -3,9 +3,9 @@ import db from '../Configs/Sequelize.js';
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
 
-class Adresses extends Model {}
+class Addresses extends Model {}
 
-Adresses.init(
+Addresses.init(
   {
     Id: {
       primaryKey: true,
@@ -40,8 +40,8 @@ Adresses.init(
   {
     sequelize,
     timestamps: false,
-    tableName: 'Adresses',
+    tableName: 'Addresses',
   }
 );
 
-export default Adresses;
+export default Addresses;
