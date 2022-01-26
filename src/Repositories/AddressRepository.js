@@ -7,8 +7,8 @@ class AddressRepository {
   }
 
   async read() {
-    const addresss = await Addresses.findAll();
-    return addresss;
+    const addresses = await Addresses.findAll();
+    return addresses;
   }
 
   async update(data) {
