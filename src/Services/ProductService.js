@@ -7,7 +7,7 @@ class ProductService {
   }
 
   async read() {
-    const products = await ProductRepository.findAll();
+    const products = await ProductRepository.read();
     return products;
   }
 
