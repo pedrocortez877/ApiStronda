@@ -8,6 +8,7 @@ import AddressRoutes from './Routes/AddressRoutes.js';
 import CustomerRoutes from './Routes/CustomerRoutes.js';
 import ProductSaleRoutes from './Routes/ProductSaleRoutes.js';
 import ServiceSaleRoutes from './Routes/ServiceSaleRoutes.js';
+import SupplierRoutes from './Routes/SupplierRoutes.js';
 
 import Auth from './Middlewares/Auth.js';
 
@@ -36,5 +37,8 @@ routes.use('/productSales', Auth, ProductSaleRoutes);
 
 // ROTAS DE VENDAS DE SERVIÇOS
 routes.use('/serviceSales', Auth, ServiceSaleRoutes);
+
+// ROTAS DE FORNECEDORES
+routes.use('/suppliers', Auth, SupplierRoutes);
 
 export default routes;
