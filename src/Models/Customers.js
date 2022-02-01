@@ -38,14 +38,14 @@ Customers.init(
   }
 );
 
-Customers.Addresses = Customers.hasOne(Addresses, {
+Addresses.Customers = Addresses.hasMany(Customers, {
   foreignKey: {
     name: 'IdAdress',
     allowNull: false,
   },
 });
 
-Addresses.Customers = Addresses.belongsTo(Customers, {
+Customers.Addresses = Customers.belongsTo(Addresses, {
   foreignKey: {
     name: 'IdAdress',
     allowNull: false,

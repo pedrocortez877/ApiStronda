@@ -2,13 +2,14 @@ import Brands from '../Models/Brands.js';
 
 class BrandRepository {
   async create(data) {
-    const product = await Brands.create(data);
-    return product;
+    console.log(data);
+    const brand = await Brands.create(data);
+    return brand;
   }
 
   async read() {
-    const products = await Brands.findAll();
-    return products;
+    const brands = await Brands.findAll();
+    return brands;
   }
 
   async update(data) {
@@ -21,6 +22,13 @@ class BrandRepository {
     const { Id } = data;
     const deletedBrand = await Brands.destroy({ where: { Id } });
     return deletedBrand;
+  }
+
+  async findOrCreate(name) {
+    const brand = await Brands.findOrCreate({
+      where: { Name: name },
+    });
+    return brand[0].dataValues;
   }
 }
 

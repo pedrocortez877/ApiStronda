@@ -33,14 +33,12 @@ ServiceSale.init(
 ServiceSale.Customers = ServiceSale.belongsTo(Customers, {
   foreignKey: {
     name: 'IdCustomer',
-    allowNull: false,
   },
 });
 
 Customers.ServiceSale = Customers.hasMany(ServiceSale, {
   foreignKey: {
     name: 'IdCustomer',
-    allowNull: false,
   },
 });
 

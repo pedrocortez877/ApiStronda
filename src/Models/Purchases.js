@@ -37,14 +37,12 @@ Purchases.init(
 Suppliers.Purchases = Suppliers.hasMany(Purchases, {
   foreignKey: {
     name: 'IdSupplier',
-    allowNull: false,
   },
 });
 
 Purchases.Suppliers = Purchases.belongsTo(Suppliers, {
   foreignKey: {
     name: 'IdSupplier',
-    allowNull: false,
   },
 });
 

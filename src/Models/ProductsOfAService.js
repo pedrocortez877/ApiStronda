@@ -42,28 +42,24 @@ ProductsOfAService.init(
 ProductsOfAService.Products = ProductsOfAService.hasMany(Products, {
   foreignKey: {
     name: 'IdProduct',
-    allowNull: false,
   },
 });
 
 Products.ProductsOfAService = Products.belongsTo(ProductsOfAService, {
   foreignKey: {
     name: 'IdProduct',
-    allowNull: false,
   },
 });
 
 ProductsOfAService.ProductSale = ProductsOfAService.hasOne(ProductSale, {
   foreignKey: {
     name: 'IdSale',
-    allowNull: false,
   },
 });
 
 ProductSale.ProductsOfAService = ProductSale.belongsTo(ProductsOfAService, {
   foreignKey: {
     name: 'IdSale',
-    allowNull: false,
   },
 });
 

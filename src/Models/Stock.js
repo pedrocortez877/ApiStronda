@@ -34,28 +34,24 @@ Stock.init(
 Stock.Products = Stock.hasMany(Products, {
   foreignKey: {
     name: 'IdProduct',
-    allowNull: false,
   },
 });
 
 Products.Stock = Products.belongsTo(Stock, {
   foreignKey: {
     name: 'IdProduct',
-    allowNull: false,
   },
 });
 
 Stock.Suppliers = Stock.belongsTo(Suppliers, {
   foreignKey: {
     name: 'IdSupplier',
-    allowNull: false,
   },
 });
 
 Suppliers.Stock = Suppliers.hasMany(Stock, {
   foreignKey: {
     name: 'IdSupplier',
-    allowNull: false,
   },
 });
 

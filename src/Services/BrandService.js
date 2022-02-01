@@ -20,6 +20,11 @@ class BrandService {
     const deletedBrand = await BrandRepository.delete(data);
     return deletedBrand;
   }
+
+  async findOrCreate(name) {
+    const brand = await BrandRepository.findOrCreate(name);
+    return brand;
+  }
 }
 
 export default new BrandService();

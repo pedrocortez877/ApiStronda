@@ -33,14 +33,12 @@ Products.init(
 Products.Brands = Products.belongsTo(Brands, {
   foreignKey: {
     name: 'IdBrand',
-    allowNull: false,
   },
 });
 
 Brands.Products = Brands.hasMany(Products, {
   foreignKey: {
     name: 'IdBrand',
-    allowNull: false,
   },
 });
 
