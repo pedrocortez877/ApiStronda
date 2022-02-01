@@ -39,13 +39,13 @@ ProductsOfASale.init(
   }
 );
 
-ProductsOfASale.Products = ProductsOfASale.hasMany(Products, {
+ProductsOfASale.Products = ProductsOfASale.belongsTo(Products, {
   foreignKey: {
     name: 'IdProduct',
   },
 });
 
-Products.ProductsOfASale = Products.belongsTo(ProductsOfASale, {
+Products.ProductsOfASale = Products.hasMany(ProductsOfASale, {
   foreignKey: {
     name: 'IdProduct',
   },
