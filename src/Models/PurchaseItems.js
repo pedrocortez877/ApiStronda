@@ -1,13 +1,13 @@
 import db from '../Configs/Sequelize.js';
 
-import Suppliers from './Suppliers.js';
+import Products from './Products.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
 
-class Purchases extends Model {}
+class PurchaseItems extends Model {}
 
-Purchases.init(
+PurchaseItems.init(
   {
     Id: {
       primaryKey: true,
@@ -26,20 +26,20 @@ Purchases.init(
   {
     sequelize,
     timestamps: false,
-    tableName: 'Purchases',
+    tableName: 'PurchaseItems',
   }
 );
 
-Suppliers.Purchases = Suppliers.hasMany(Purchases, {
+Products.PurchaseItems = Products.hasOne(PurchaseItems, {
   foreignKey: {
-    name: 'IdSupplier',
+    name: 'IdProduct',
   },
 });
 
-Purchases.Suppliers = Purchases.belongsTo(Suppliers, {
+PurchaseItems.Products = PurchaseItems.belongsTo(Products, {
   foreignKey: {
-    name: 'IdSupplier',
+    name: 'IdProduct',
   },
 });
 
-export default Purchases;
+export default PurchaseItems;

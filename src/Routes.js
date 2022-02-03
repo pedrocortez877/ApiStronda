@@ -47,6 +47,6 @@ routes.use('/suppliers', Auth, SupplierRoutes);
 routes.use('/stocks', Auth, StockRoutes);
 
 // ROTAS DE COMPRAS
-routes.use('/stocks', Auth, PurchaseRoutes);
+routes.use('/purchases', Auth, PurchaseRoutes);
 
 export default routes;
