@@ -3,8 +3,7 @@ import yup from '../../Helpers/Yup.js';
 export default (req, res, next) => {
   const schema = yup.object().shape({
     IdSupplier: yup.number().required().min(1),
-    Quantity: yup.number().required().min(1),
-    PurchasePrice: yup.number().required(),
+    TotalPrice: yup.number().required(),
     Invoice: yup.boolean(),
   });
 
