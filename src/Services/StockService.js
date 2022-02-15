@@ -2,7 +2,17 @@ import StockRepository from '../Repositories/StockRepository.js';
 
 class StockService {
   async create(data) {
-    const stock = await StockRepository.create(data);
+    let stock = null;
+    data.forEach(async (product) => {
+      const { IdProduct, Quantity } = product;
+      const dataCreateStock = {
+        IdProduct,
+        Quantity,
+      };
+      stock = await StockRepository.create(dataCreateStock);
+
+      console.log(stock);
+    });
     return stock;
   }
 

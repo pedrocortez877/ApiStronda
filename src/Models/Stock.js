@@ -1,7 +1,6 @@
 import db from '../Configs/Sequelize.js';
 
 import Products from './Products.js';
-import Suppliers from './Suppliers.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
@@ -15,13 +14,9 @@ Stock.init(
       type: DataTypes.BIGINT,
       autoIncrement: true,
     },
-    StockValue: {
+    Quantity: {
       allowNull: false,
-      type: DataTypes.DECIMAL,
-    },
-    Invoice: {
-      allowNull: false,
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.NUMBER,
     },
   },
   {
@@ -40,18 +35,6 @@ Stock.Products = Stock.belongsTo(Products, {
 Products.Stock = Products.hasMany(Stock, {
   foreignKey: {
     name: 'IdProduct',
-  },
-});
-
-Stock.Suppliers = Stock.belongsTo(Suppliers, {
-  foreignKey: {
-    name: 'IdSupplier',
-  },
-});
-
-Suppliers.Stock = Suppliers.hasMany(Stock, {
-  foreignKey: {
-    name: 'IdSupplier',
   },
 });
 

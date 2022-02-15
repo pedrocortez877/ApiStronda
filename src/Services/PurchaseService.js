@@ -1,5 +1,6 @@
 import PurchaseRepository from '../Repositories/PurchaseRepository.js';
 import PurchaseItemsService from './PurchaseItemsService.js';
+import StockService from './StockService.js';
 
 class PurchaseService {
   async create(data) {
@@ -32,6 +33,15 @@ class PurchaseService {
       return {
         status: false,
         message: 'Ocorreu um erro ao tentar cadastrar os produtos desta compra',
+      };
+    }
+
+    const updateStock = StockService.create(createPurchaseItems);
+
+    if (!updateStock) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar atualizar o estoque',
       };
     }
 

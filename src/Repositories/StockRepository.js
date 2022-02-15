@@ -2,7 +2,13 @@ import Stock from '../Models/Stock.js';
 
 class SupplierRepository {
   async create(data) {
-    const stock = await Stock.create(data);
+    const { IdProduct } = data;
+
+    const stock = await Stock.findOrCreate({
+      where: { IdProduct },
+      defaults: data,
+    });
+
     return stock;
   }
 
