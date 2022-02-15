@@ -2,7 +2,6 @@ import Brands from '../Models/Brands.js';
 
 class BrandRepository {
   async create(data) {
-    console.log(data);
     const brand = await Brands.create(data);
     return brand;
   }

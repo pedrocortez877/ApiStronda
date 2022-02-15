@@ -1,9 +1,43 @@
 import PurchaseRepository from '../Repositories/PurchaseRepository.js';
+import PurchaseItemsService from './PurchaseItemsService.js';
 
 class PurchaseService {
   async create(data) {
-    const purchase = await PurchaseRepository.create(data);
-    return purchase;
+    const { Purchase, PurchaseItems } = data;
+
+    Purchase.TotalPrice = 0;
+
+    PurchaseItems.forEach((item) => {
+      Purchase.TotalPrice += item.PurchasePrice * item.Quantity;
+    });
+
+    const purchase = await PurchaseRepository.create(Purchase);
+
+    if (!purchase) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar cadastrar uma nova compra',
+      };
+    }
+
+    PurchaseItems.forEach((item) => {
+      item.IdPurchase = purchase.Id;
+    });
+
+    const createPurchaseItems = await PurchaseItemsService.create(
+      PurchaseItems
+    );
+
+    if (!createPurchaseItems) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar cadastrar os produtos desta compra',
+      };
+    }
+
+    return {
+      status: true,
+    };
   }
 
   async read() {

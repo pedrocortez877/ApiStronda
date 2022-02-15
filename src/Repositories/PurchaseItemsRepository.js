@@ -2,7 +2,7 @@ import PurchaseItems from '../Models/PurchaseItems.js';
 
 class PurchaseItemsRepository {
   async create(data) {
-    const purchaseItem = await PurchaseItems.create(data);
+    const purchaseItem = await PurchaseItems.bulkCreate(data);
     return purchaseItem;
   }
 

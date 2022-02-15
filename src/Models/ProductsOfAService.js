@@ -39,25 +39,25 @@ ProductsOfAService.init(
   }
 );
 
-ProductsOfAService.Products = ProductsOfAService.hasMany(Products, {
+Products.ProductsOfAService = Products.hasMany(ProductsOfAService, {
   foreignKey: {
     name: 'IdProduct',
   },
 });
 
-Products.ProductsOfAService = Products.belongsTo(ProductsOfAService, {
+ProductsOfAService.Products = ProductsOfAService.belongsTo(Products, {
   foreignKey: {
     name: 'IdProduct',
   },
 });
 
-ProductsOfAService.ProductSale = ProductsOfAService.hasOne(ProductSale, {
+ProductsOfAService.ProductSale = ProductsOfAService.belongsTo(ProductSale, {
   foreignKey: {
     name: 'IdSale',
   },
 });
 
-ProductSale.ProductsOfAService = ProductSale.belongsTo(ProductsOfAService, {
+ProductSale.ProductsOfAService = ProductSale.hasOne(ProductsOfAService, {
   foreignKey: {
     name: 'IdSale',
   },

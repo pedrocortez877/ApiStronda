@@ -5,6 +5,7 @@ import Products from './Products.js';
 import ProductSale from './ProductSale.js';
 import ProductsOfASale from './ProductsOfASale.js';
 import ProductsOfAService from './ProductsOfAService.js';
+import PurchaseItems from './PurchaseItems.js';
 import Purchases from './Purchases.js';
 import ServiceSale from './ServiceSale.js';
 import Stock from './Stock.js';
@@ -20,6 +21,7 @@ const Models = [
   ProductsOfASale,
   ProductsOfAService,
   Purchases,
+  PurchaseItems,
   ServiceSale,
   Stock,
   Suppliers,

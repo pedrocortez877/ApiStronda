@@ -2,7 +2,6 @@ import Customers from '../Models/Customers.js';
 
 class CustomerRepository {
   async create(data) {
-    console.log(data);
     const customer = await Customers.create(data);
     return customer;
   }

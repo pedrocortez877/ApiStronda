@@ -2,7 +2,6 @@ import Products from '../Models/Products.js';
 
 class ProductRepository {
   async create(data) {
-    console.log(data);
     const product = await Products.create(data);
     return product;
   }

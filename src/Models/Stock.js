@@ -31,13 +31,13 @@ Stock.init(
   }
 );
 
-Stock.Products = Stock.hasMany(Products, {
+Stock.Products = Stock.belongsTo(Products, {
   foreignKey: {
     name: 'IdProduct',
   },
 });
 
-Products.Stock = Products.belongsTo(Stock, {
+Products.Stock = Products.hasMany(Stock, {
   foreignKey: {
     name: 'IdProduct',
   },

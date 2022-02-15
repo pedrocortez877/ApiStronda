@@ -2,23 +2,23 @@ import PurchaseItemsRepository from '../Repositories/PurchaseItemsRepository.js'
 
 class PurchaseItemsService {
   async create(data) {
-    const purchase = await PurchaseItemsRepository.create(data);
-    return purchase;
+    const purchaseItems = await PurchaseItemsRepository.create(data);
+    return purchaseItems;
   }
 
   async read() {
-    const purchases = await PurchaseItemsRepository.read();
-    return purchases;
+    const purchaseItems = await PurchaseItemsRepository.read();
+    return purchaseItems;
   }
 
   async update(data) {
-    const updatedPurchase = await PurchaseItemsRepository.update(data);
-    return updatedPurchase;
+    const updatedPurchaseItems = await PurchaseItemsRepository.update(data);
+    return updatedPurchaseItems;
   }
 
   async delete(data) {
-    const deletedPurchase = await PurchaseItemsRepository.delete(data);
-    return deletedPurchase;
+    const deletedPurchaseItems = await PurchaseItemsRepository.delete(data);
+    return deletedPurchaseItems;
   }
 }
 

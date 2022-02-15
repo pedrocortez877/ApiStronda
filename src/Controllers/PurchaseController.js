@@ -2,14 +2,10 @@ import PurchaseService from '../Services/PurchaseService.js';
 
 class PurchaseController {
   async create(req, res) {
-    const data = req.body;
+    const createPurchase = await PurchaseService.create(req.body);
 
-    const purchase = await PurchaseService.create(data);
-
-    if (!purchase) {
-      return res.status(400).json({
-        message: 'Ocorreu um erro ao tentar cadastrar um novo endereço',
-      });
+    if (!createPurchase.status) {
+      return res.status(400).json(createPurchase.message);
     }
 
     return res.status(201).json({ message: 'OK' });
