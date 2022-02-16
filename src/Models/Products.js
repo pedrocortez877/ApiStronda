@@ -22,6 +22,12 @@ Products.init(
       allowNull: false,
       type: DataTypes.STRING(200),
     },
+    SaleValue: {
+      type: DataTypes.DECIMAL,
+    },
+    PurchaseValue: {
+      type: DataTypes.DECIMALl,
+    },
   },
   {
     sequelize,
