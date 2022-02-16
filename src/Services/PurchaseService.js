@@ -1,6 +1,7 @@
 import PurchaseRepository from '../Repositories/PurchaseRepository.js';
 import PurchaseItemsService from './PurchaseItemsService.js';
 import StockService from './StockService.js';
+import ProductService from './ProductService.js';
 
 class PurchaseService {
   async create(data) {
@@ -44,6 +45,21 @@ class PurchaseService {
         message: 'Ocorreu um erro ao tentar atualizar o estoque',
       };
     }
+
+    PurchaseItems.forEach(async (item) => {
+      const { PurchasePrice } = item;
+      const product = {
+        Id: item.IdProduct,
+        PurchasePrice,
+      };
+      const updatePurchasePrice = await ProductService.update(product);
+      if (!updatePurchasePrice) {
+        return {
+          status: false,
+          message: 'Ocorreu um erro ao tentar atualizar o preço do produto',
+        };
+      }
+    });
 
     return {
       status: true,

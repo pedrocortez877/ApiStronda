@@ -26,7 +26,7 @@ Products.init(
       type: DataTypes.DECIMAL,
     },
     PurchaseValue: {
-      type: DataTypes.DECIMALl,
+      type: DataTypes.DECIMAL,
     },
   },
   {
