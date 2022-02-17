@@ -47,11 +47,19 @@ class PurchaseService {
     }
 
     PurchaseItems.forEach(async (item) => {
-      const { PurchasePrice } = item;
+      const PurchasePrice = Number(item.PurchasePrice);
+      const ProfitPercentage = Number(item.ProfitPercentage);
+
+      console.log(ProfitPercentage);
+
+      const SaleValue =
+        PurchasePrice + (PurchasePrice / 100) * Number(ProfitPercentage);
 
       const product = {
         Id: Number(item.IdProduct),
-        PurchaseValue: Number(PurchasePrice),
+        PurchaseValue: PurchasePrice,
+        SaleValue,
+        ProfitPercentage,
       };
 
       const updatePurchasePrice = await ProductService.update(product);

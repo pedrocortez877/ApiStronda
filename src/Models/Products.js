@@ -28,6 +28,9 @@ Products.init(
     PurchaseValue: {
       type: DataTypes.DECIMAL,
     },
+    ProfitPercentage: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,

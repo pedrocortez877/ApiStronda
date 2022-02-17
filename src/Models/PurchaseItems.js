@@ -23,6 +23,10 @@ PurchaseItems.init(
       allowNull: false,
       type: DataTypes.NUMBER,
     },
+    ProfitPercentage: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,
