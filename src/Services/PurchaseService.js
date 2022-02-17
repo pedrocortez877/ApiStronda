@@ -23,7 +23,7 @@ class PurchaseService {
     }
 
     PurchaseItems.forEach((item) => {
-      item.IdPurchase = purchase.Id;
+      item.IdPurchase = Number(purchase.Id);
     });
 
     const createPurchaseItems = await PurchaseItemsService.create(
@@ -48,11 +48,14 @@ class PurchaseService {
 
     PurchaseItems.forEach(async (item) => {
       const { PurchasePrice } = item;
+
       const product = {
-        Id: item.IdProduct,
-        PurchasePrice,
+        Id: Number(item.IdProduct),
+        PurchaseValue: Number(PurchasePrice),
       };
+
       const updatePurchasePrice = await ProductService.update(product);
+
       if (!updatePurchasePrice) {
         return {
           status: false,
