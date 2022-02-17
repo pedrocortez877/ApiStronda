@@ -50,8 +50,6 @@ class PurchaseService {
       const PurchasePrice = Number(item.PurchasePrice);
       const ProfitPercentage = Number(item.ProfitPercentage);
 
-      console.log(ProfitPercentage);
-
       const SaleValue =
         PurchasePrice + (PurchasePrice / 100) * Number(ProfitPercentage);
 
