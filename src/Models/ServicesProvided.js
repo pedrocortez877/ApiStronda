@@ -24,6 +24,9 @@ ServicesProvided.init(
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
+    Note: {
+      type: DataTypes.STRING(500),
+    },
   },
   {
     sequelize,
