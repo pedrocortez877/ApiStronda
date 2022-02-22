@@ -1,13 +1,32 @@
 import yup from '../../Helpers/Yup.js';
 
-export default (req, res, next) => {
-  const schema = yup.object().shape({
-    IdCustomer: yup.number().min(1).required(),
+export default async (req, res, next) => {
+  const schemaProductSale = yup.object().shape({
+    IdCustomer: yup.number().required().min(1),
     Invoice: yup.boolean(),
   });
 
-  return schema
-    .validate(req.body)
-    .then(() => next())
-    .catch(({ errors }) => res.status(400).json({ message: errors.pop() }));
+  const schemaItemsProductSale = yup.array().of(
+    yup.object().shape({
+      Quantity: yup.number().required().min(1),
+      IdProduct: yup.number().required().min(1),
+      ProductValue: yup.number().required(),
+      DiscountPercentage: yup.number(),
+      DiscountValue: yup.number(),
+    })
+  );
+
+  try {
+    const validateProductSale = await schemaProductSale.validate(
+      req.body.ProductSale
+    );
+
+    const validateItemsProductSale = await schemaItemsProductSale.validate(
+      req.body.ItemsProductSale
+    );
+
+    if (validateProductSale && validateItemsProductSale) next();
+  } catch (e) {
+    return res.status(400).json({ message: e.errors.pop() });
+  }
 };
