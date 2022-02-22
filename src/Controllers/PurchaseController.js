@@ -5,16 +5,16 @@ class PurchaseController {
     const createPurchase = await PurchaseService.create(req.body);
 
     if (!createPurchase.status) {
-      return res.status(400).json(createPurchase.message);
+      return res.badRequest(createPurchase.message);
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const purchases = await PurchaseService.read();
 
-    return res.status(200).json(purchases);
+    return res.ok(purchases);
   }
 
   async update(req, res) {
@@ -23,12 +23,12 @@ class PurchaseController {
     const updatedPurchase = await PurchaseService.update(data);
 
     if (!updatedPurchase) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar marca',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -37,12 +37,12 @@ class PurchaseController {
     const deletedPurchase = await PurchaseService.delete(data);
 
     if (!deletedPurchase) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar endereço',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
