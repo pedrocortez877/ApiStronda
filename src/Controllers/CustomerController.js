@@ -7,18 +7,18 @@ class CustomerController {
     const customer = await CustomerService.create(data);
 
     if (!customer) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar um novo cliente',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const customers = await CustomerService.read();
 
-    return res.status(200).json(customers);
+    return res.ok(customers);
   }
 
   async update(req, res) {
@@ -27,12 +27,12 @@ class CustomerController {
     const updatedCustomer = await CustomerService.update(data);
 
     if (!updatedCustomer) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar marca',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +41,12 @@ class CustomerController {
     const deletedCustomer = await CustomerService.delete(data);
 
     if (!deletedCustomer) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar cliente',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
