@@ -7,12 +7,12 @@ class LoginController {
     const token = await UserService.login(data);
 
     if (!token) {
-      return res.status(401).json({
+      return res.unauthorized({
         message: 'Acesso não autorizado',
       });
     }
 
-    return res.status(200).json({
+    return res.ok({
       token,
     });
   }
