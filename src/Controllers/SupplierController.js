@@ -7,18 +7,18 @@ class SupplierController {
     const supplier = await SupplierService.create(data);
 
     if (!supplier) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar um novo endereço',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const suppliers = await SupplierService.read();
 
-    return res.status(200).json(suppliers);
+    return res.ok(suppliers);
   }
 
   async update(req, res) {
@@ -27,12 +27,12 @@ class SupplierController {
     const updatedSupplier = await SupplierService.update(data);
 
     if (!updatedSupplier) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar marca',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +41,12 @@ class SupplierController {
     const deletedSupplier = await SupplierService.delete(data);
 
     if (!deletedSupplier) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar endereço',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
