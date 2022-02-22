@@ -10,7 +10,7 @@ export default async (req, res, next) => {
   };
 
   res.noContent = () => {
-    res.status(201);
+    res.status(204);
   };
 
   res.badRequest = (content) => {
