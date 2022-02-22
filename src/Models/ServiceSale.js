@@ -1,6 +1,7 @@
 import db from '../Configs/Sequelize.js';
 
 import Customers from './Customers.js';
+import ServicesProvided from './ServicesProvided.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
@@ -39,6 +40,18 @@ ServiceSale.Customers = ServiceSale.belongsTo(Customers, {
 Customers.ServiceSale = Customers.hasMany(ServiceSale, {
   foreignKey: {
     name: 'IdCustomer',
+  },
+});
+
+ServiceSale.ServicesProvided = ServiceSale.belongsTo(ServicesProvided, {
+  foreignKey: {
+    name: 'IdServiceProvided',
+  },
+});
+
+ServicesProvided.ServiceSale = ServicesProvided.hasMany(ServiceSale, {
+  foreignKey: {
+    name: 'IdServiceProvided',
   },
 });
 

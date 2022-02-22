@@ -34,3 +34,5 @@ ServicesProvided.init(
     tableName: 'ServicesProvided',
   }
 );
+
+export default ServicesProvided;
