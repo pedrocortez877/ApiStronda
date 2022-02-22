@@ -7,18 +7,18 @@ class BrandController {
     const brand = await BrandService.create(data);
 
     if (!brand) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar uma nova marca',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const brands = await BrandService.read();
 
-    return res.status(200).json(brands);
+    return res.ok(brands);
   }
 
   async update(req, res) {
@@ -27,12 +27,12 @@ class BrandController {
     const updatedBrand = await BrandService.update(data);
 
     if (!updatedBrand) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar marca',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +41,12 @@ class BrandController {
     const deletedBrand = await BrandService.delete(data);
 
     if (!deletedBrand) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar marca',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
