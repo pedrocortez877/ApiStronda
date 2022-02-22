@@ -2,7 +2,7 @@ import ProductsOfASale from '../Models/ProductsOfASale.js';
 
 class ProductsOfASaleRepository {
   async create(data) {
-    const productsOfASale = await ProductsOfASale.create(data);
+    const productsOfASale = await ProductsOfASale.bulkCreate(data);
     return productsOfASale;
   }
 
