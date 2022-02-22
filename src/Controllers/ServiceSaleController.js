@@ -10,7 +10,7 @@ class ServiceSaleController {
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
