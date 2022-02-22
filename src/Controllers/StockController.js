@@ -7,18 +7,18 @@ class StockController {
     const stock = await StockService.create(data);
 
     if (!stock) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar estoque',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const stocks = await StockService.read();
 
-    return res.status(200).json(stocks);
+    return res.ok(stocks);
   }
 
   async update(req, res) {
@@ -27,12 +27,12 @@ class StockController {
     const updatedStock = await StockService.update(data);
 
     if (!updatedStock) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar estoque',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +41,12 @@ class StockController {
     const deletedStock = await StockService.delete(data);
 
     if (!deletedStock) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar estoque',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
