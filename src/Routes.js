@@ -11,6 +11,7 @@ import ServiceSaleRoutes from './Routes/ServiceSaleRoutes.js';
 import SupplierRoutes from './Routes/SupplierRoutes.js';
 import StockRoutes from './Routes/StockRoutes.js';
 import PurchaseRoutes from './Routes/PurchaseRoutes.js';
+import ServicesProvidedRoutes from './Routes/ServicesProvidedRoutes.js';
 
 import Auth from './Middlewares/Auth.js';
 import HttpResponses from './Middlewares/HttpResponses.js';
@@ -49,5 +50,8 @@ routes.use('/stocks', Auth, HttpResponses, StockRoutes);
 
 // ROTAS DE COMPRAS
 routes.use('/purchases', Auth, HttpResponses, PurchaseRoutes);
+
+// ROTAS DE SERVIÇOS
+routes.use('/servicesProvided', Auth, HttpResponses, ServicesProvidedRoutes);
 
 export default routes;
