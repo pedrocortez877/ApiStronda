@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import UserRoute from './Routes/UserRoutes.js';
-import PingRoute from './Routes/PingRoutes.js';
+import UserRoutes from './Routes/UserRoutes.js';
+import PingRoutes from './Routes/PingRoutes.js';
 import ProductRoutes from './Routes/ProductRoutes.js';
 import BrandRoutes from './Routes/BrandRoutes.js';
 import AddressRoutes from './Routes/AddressRoutes.js';
@@ -19,10 +19,10 @@ import HttpResponses from './Middlewares/HttpResponses.js';
 const routes = Router();
 
 // ROTA DE PING
-routes.use('/ping', Auth, HttpResponses, PingRoute);
+routes.use('/ping', Auth, HttpResponses, PingRoutes);
 
 // ROTAS DE LOGIN
-routes.use('/login', HttpResponses, UserRoute);
+routes.use('/login', HttpResponses, UserRoutes);
 
 // ROTAS DE PRODUTOS
 routes.use('/products', Auth, HttpResponses, ProductRoutes);
