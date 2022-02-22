@@ -14,7 +14,7 @@ ProductSale.init(
       type: DataTypes.BIGINT,
       autoIncrement: true,
     },
-    SaleProductValue: {
+    TotalPrice: {
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
