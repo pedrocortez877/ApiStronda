@@ -30,13 +30,13 @@ ProductSale.init(
   }
 );
 
-ProductSale.Customers = ProductSale.belongsTo(Customers, {
+Customers.ProductSale = Customers.hasMany(ProductSale, {
   foreignKey: {
     name: 'IdCustomer',
   },
 });
 
-Customers.ProductSale = Customers.hasMany(ProductSale, {
+ProductSale.Customers = ProductSale.belongsTo(Customers, {
   foreignKey: {
     name: 'IdCustomer',
   },

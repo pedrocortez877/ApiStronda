@@ -51,13 +51,13 @@ Products.ProductsOfASale = Products.hasMany(ProductsOfASale, {
   },
 });
 
-ProductsOfASale.ProductSale = ProductsOfASale.hasOne(ProductSale, {
+ProductSale.ProductsOfASale = ProductSale.hasOne(ProductsOfASale, {
   foreignKey: {
     name: 'IdSale',
   },
 });
 
-ProductSale.ProductsOfASale = ProductSale.belongsTo(ProductsOfASale, {
+ProductsOfASale.ProductSale = ProductsOfASale.belongsTo(ProductSale, {
   foreignKey: {
     name: 'IdSale',
   },

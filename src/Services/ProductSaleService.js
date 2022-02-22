@@ -14,7 +14,7 @@ class ProductSaleService {
       ProductSale.TotalPrice += ProductValue * Quantity;
     });
 
-    const productSale = await ProductSaleRepository.create(data);
+    const productSale = await ProductSaleRepository.create(ProductSale);
 
     if (!productSale) {
       return {
