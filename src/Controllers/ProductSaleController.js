@@ -7,18 +7,18 @@ class ProductSaleController {
     const productSale = await ProductSaleService.create(data);
 
     if (!productSale) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar uma venda de produto',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const productSales = await ProductSaleService.read();
 
-    return res.status(200).json(productSales);
+    return res.ok(productSales);
   }
 
   async update(req, res) {
@@ -27,12 +27,12 @@ class ProductSaleController {
     const updatedProductSale = await ProductSaleService.update(data);
 
     if (!updatedProductSale) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao atualizar venda de produto',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +41,12 @@ class ProductSaleController {
     const deletedProductSale = await ProductSaleService.delete(data);
 
     if (!deletedProductSale) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar venda de produto',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent({ message: 'OK' });
   }
 }
 
