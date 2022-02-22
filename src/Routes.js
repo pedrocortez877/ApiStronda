@@ -13,40 +13,41 @@ import StockRoutes from './Routes/StockRoutes.js';
 import PurchaseRoutes from './Routes/PurchaseRoutes.js';
 
 import Auth from './Middlewares/Auth.js';
+import HttpResponses from './Middlewares/HttpResponses.js';
 
 const routes = Router();
 
 // ROTA DE PING
-routes.use('/ping', Auth, PingRoute);
+routes.use('/ping', Auth, HttpResponses, PingRoute);
 
 // ROTAS DE LOGIN
-routes.use('/login', UserRoute);
+routes.use('/login', HttpResponses, UserRoute);
 
 // ROTAS DE PRODUTOS
-routes.use('/products', Auth, ProductRoutes);
+routes.use('/products', Auth, HttpResponses, ProductRoutes);
 
 // ROTAS DE MARCAS
-routes.use('/brands', Auth, BrandRoutes);
+routes.use('/brands', Auth, HttpResponses, BrandRoutes);
 
 // ROTAS DE ENDERECOS
-routes.use('/addresses', Auth, AddressRoutes);
+routes.use('/addresses', Auth, HttpResponses, AddressRoutes);
 
 // ROTAS DE CLIENTES
-routes.use('/customers', Auth, CustomerRoutes);
+routes.use('/customers', Auth, HttpResponses, CustomerRoutes);
 
 // ROTAS DE VENDAS DE PRODUTOS
-routes.use('/productSales', Auth, ProductSaleRoutes);
+routes.use('/productSales', Auth, HttpResponses, ProductSaleRoutes);
 
 // ROTAS DE VENDAS DE SERVIÇOS
-routes.use('/serviceSales', Auth, ServiceSaleRoutes);
+routes.use('/serviceSales', Auth, HttpResponses, ServiceSaleRoutes);
 
 // ROTAS DE FORNECEDORES
-routes.use('/suppliers', Auth, SupplierRoutes);
+routes.use('/suppliers', Auth, HttpResponses, SupplierRoutes);
 
 // ROTAS DE ESTOQUE
-routes.use('/stocks', Auth, StockRoutes);
+routes.use('/stocks', Auth, HttpResponses, StockRoutes);
 
 // ROTAS DE COMPRAS
-routes.use('/purchases', Auth, PurchaseRoutes);
+routes.use('/purchases', Auth, HttpResponses, PurchaseRoutes);
 
 export default routes;

@@ -7,18 +7,24 @@ class AddressController {
     const address = await AddressService.create(data);
 
     if (!address) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Ocorreu um erro ao tentar cadastrar um novo endereço',
       });
     }
 
-    return res.status(201).json({ message: 'OK' });
+    return res.created({ message: 'OK' });
   }
 
   async read(req, res) {
     const addresses = await AddressService.read();
 
-    return res.status(200).json(addresses);
+    if (!addresses) {
+      return res.badRequest({
+        message: 'Ocorreu um erro ao tentar buscar o endereço',
+      });
+    }
+
+    return res.ok(addresses);
   }
 
   async update(req, res) {
@@ -27,12 +33,12 @@ class AddressController {
     const updatedAddress = await AddressService.update(data);
 
     if (!updatedAddress) {
-      return res.status(400).json({
-        message: 'Erro ao atualizar marca',
+      return res.badRequest({
+        message: 'Erro ao atualizar endereço',
       });
     }
 
-    return res.status(200).json({ message: 'OK' });
+    return res.ok({ message: 'OK' });
   }
 
   async delete(req, res) {
@@ -41,12 +47,12 @@ class AddressController {
     const deletedAddress = await AddressService.delete(data);
 
     if (!deletedAddress) {
-      return res.status(400).json({
+      return res.badRequest({
         message: 'Erro ao deletar endereço',
       });
     }
 
-    return res.status(204).json({ message: 'OK' });
+    return res.noContent();
   }
 }
 
