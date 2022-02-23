@@ -5,6 +5,7 @@ export default (req, res, next) => {
     IdCustomer: yup.number().min(1).required(),
     ServiceSaleValue: yup.number().required(),
     Invoice: yup.boolean(),
+    IdServiceProvided: yup.number().min(1).required(),
   });
 
   return schema
