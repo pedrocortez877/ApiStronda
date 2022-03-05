@@ -7,6 +7,8 @@ export default async (req, res, next) => {
     .shape({
       IdCustomer: yup.number().required().min(1),
       Invoice: yup.boolean(),
+      DiscountPercentage: yup.number(),
+      DiscountValue: yup.number(),
     });
 
   const schemaProductsServiceSale = yup.array().of(
