@@ -6,13 +6,17 @@ import StockService from './StockService.js';
 class ProductSaleService {
   async create(data) {
     const { ProductSale, ItemsProductSale } = data;
+    const { DiscountValue } = ProductSale;
 
-    ProductSale.TotalPrice = 0;
+    ProductSale.GrossValue = 0;
+    ProductSale.LiquidValue = 0;
 
     ItemsProductSale.forEach((item) => {
       const { ProductValue, Quantity } = item;
-      ProductSale.TotalPrice += ProductValue * Quantity;
+      ProductSale.GrossValue += ProductValue * Quantity;
     });
+
+    ProductSale.LiquidValue = ProductSale.GrossValue - DiscountValue;
 
     const productSale = await ProductSaleRepository.create(ProductSale);
 
