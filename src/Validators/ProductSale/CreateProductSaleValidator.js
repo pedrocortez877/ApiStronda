@@ -27,6 +27,6 @@ export default async (req, res, next) => {
 
     if (validateProductSale && validateItemsProductSale) next();
   } catch (e) {
-    return res.status(400).json({ message: e.errors.pop() });
+    return res.badRequest({ message: e.errors.pop() });
   }
 };

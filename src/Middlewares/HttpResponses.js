@@ -15,7 +15,7 @@ export default async (req, res, next) => {
 
   res.badRequest = (content) => {
     res.body = content;
-    return res.status(400).json(content);
+    return res.badRequest(content);
   };
 
   res.unauthorized = (content) => {

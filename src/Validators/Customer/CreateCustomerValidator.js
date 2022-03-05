@@ -12,5 +12,5 @@ export default (req, res, next) => {
   return schema
     .validate(req.body)
     .then(() => next())
-    .catch(({ errors }) => res.status(400).json({ message: errors.pop() }));
+    .catch(({ errors }) => res.badRequest({ message: errors.pop() }));
 };
