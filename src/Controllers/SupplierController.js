@@ -2,9 +2,7 @@ import SupplierService from '../Services/SupplierService.js';
 
 class SupplierController {
   async create(req, res) {
-    const data = req.body;
-
-    const supplier = await SupplierService.create(data);
+    const supplier = await SupplierService.create(req.body);
 
     if (!supplier) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class SupplierController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedSupplier = await SupplierService.update(data);
+    const updatedSupplier = await SupplierService.update(req.body);
 
     if (!updatedSupplier) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class SupplierController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedSupplier = await SupplierService.delete(data);
+    const deletedSupplier = await SupplierService.delete(req.query);
 
     if (!deletedSupplier) {
       return res.badRequest({

@@ -2,9 +2,7 @@ import ProductService from '../Services/ProductService.js';
 
 class ProductController {
   async create(req, res) {
-    const data = req.body;
-
-    const product = await ProductService.create(data);
+    const product = await ProductService.create(req.body);
 
     if (!product) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class ProductController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedProduct = await ProductService.update(data);
+    const updatedProduct = await ProductService.update(req.body);
 
     if (!updatedProduct) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class ProductController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedProduct = await ProductService.delete(data);
+    const deletedProduct = await ProductService.delete(req.query);
 
     if (!deletedProduct) {
       return res.badRequest({

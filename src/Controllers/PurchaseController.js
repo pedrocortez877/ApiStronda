@@ -18,9 +18,7 @@ class PurchaseController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedPurchase = await PurchaseService.update(data);
+    const updatedPurchase = await PurchaseService.update(req.body);
 
     if (!updatedPurchase) {
       return res.badRequest({
@@ -32,9 +30,7 @@ class PurchaseController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedPurchase = await PurchaseService.delete(data);
+    const deletedPurchase = await PurchaseService.delete(req.query);
 
     if (!deletedPurchase) {
       return res.badRequest({

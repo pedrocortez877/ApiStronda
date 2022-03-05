@@ -2,9 +2,7 @@ import AddressService from '../Services/AddressService.js';
 
 class AddressController {
   async create(req, res) {
-    const data = req.body;
-
-    const address = await AddressService.create(data);
+    const address = await AddressService.create(req.body);
 
     if (!address) {
       return res.badRequest({
@@ -28,9 +26,7 @@ class AddressController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedAddress = await AddressService.update(data);
+    const updatedAddress = await AddressService.update(req.body);
 
     if (!updatedAddress) {
       return res.badRequest({
@@ -42,9 +38,7 @@ class AddressController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedAddress = await AddressService.delete(data);
+    const deletedAddress = await AddressService.delete(req.query);
 
     if (!deletedAddress) {
       return res.badRequest({

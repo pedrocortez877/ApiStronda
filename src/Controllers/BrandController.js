@@ -2,9 +2,7 @@ import BrandService from '../Services/BrandService.js';
 
 class BrandController {
   async create(req, res) {
-    const data = req.body;
-
-    const brand = await BrandService.create(data);
+    const brand = await BrandService.create(req.body);
 
     if (!brand) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class BrandController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedBrand = await BrandService.update(data);
+    const updatedBrand = await BrandService.update(req.body);
 
     if (!updatedBrand) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class BrandController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedBrand = await BrandService.delete(data);
+    const deletedBrand = await BrandService.delete(req.query);
 
     if (!deletedBrand) {
       return res.badRequest({

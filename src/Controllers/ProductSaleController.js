@@ -2,9 +2,7 @@ import ProductSaleService from '../Services/ProductSaleService.js';
 
 class ProductSaleController {
   async create(req, res) {
-    const data = req.body;
-
-    const productSale = await ProductSaleService.create(data);
+    const productSale = await ProductSaleService.create(req.body);
 
     if (!productSale) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class ProductSaleController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedProductSale = await ProductSaleService.update(data);
+    const updatedProductSale = await ProductSaleService.update(req.body);
 
     if (!updatedProductSale) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class ProductSaleController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedProductSale = await ProductSaleService.delete(data);
+    const deletedProductSale = await ProductSaleService.delete(req.query);
 
     if (!deletedProductSale) {
       return res.badRequest({

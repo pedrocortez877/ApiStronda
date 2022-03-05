@@ -2,9 +2,7 @@ import ServicesProvidedService from '../Services/ServicesProvidedService.js';
 
 class ServicesProvidedController {
   async create(req, res) {
-    const data = req.body;
-
-    const servicesProvided = await ServicesProvidedService.create(data);
+    const servicesProvided = await ServicesProvidedService.create(req.body);
 
     if (!servicesProvided) {
       return res.badRequest({
@@ -22,9 +20,9 @@ class ServicesProvidedController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedServicesProvided = await ServicesProvidedService.update(data);
+    const updatedServicesProvided = await ServicesProvidedService.update(
+      req.body
+    );
 
     if (!updatedServicesProvided) {
       return res.badRequest({
@@ -36,9 +34,9 @@ class ServicesProvidedController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedServicesProvided = await ServicesProvidedService.delete(data);
+    const deletedServicesProvided = await ServicesProvidedService.delete(
+      req.query
+    );
 
     if (!deletedServicesProvided) {
       return res.badRequest({

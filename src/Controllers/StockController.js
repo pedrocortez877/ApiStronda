@@ -2,9 +2,7 @@ import StockService from '../Services/StockService.js';
 
 class StockController {
   async create(req, res) {
-    const data = req.body;
-
-    const stock = await StockService.create(data);
+    const stock = await StockService.create(req.body);
 
     if (!stock) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class StockController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedStock = await StockService.update(data);
+    const updatedStock = await StockService.update(req.body);
 
     if (!updatedStock) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class StockController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedStock = await StockService.delete(data);
+    const deletedStock = await StockService.delete(req.query);
 
     if (!deletedStock) {
       return res.badRequest({

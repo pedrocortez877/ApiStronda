@@ -2,9 +2,7 @@ import CustomerService from '../Services/CustomerService.js';
 
 class CustomerController {
   async create(req, res) {
-    const data = req.body;
-
-    const customer = await CustomerService.create(data);
+    const customer = await CustomerService.create(req.body);
 
     if (!customer) {
       return res.badRequest({
@@ -22,9 +20,7 @@ class CustomerController {
   }
 
   async update(req, res) {
-    const data = req.body;
-
-    const updatedCustomer = await CustomerService.update(data);
+    const updatedCustomer = await CustomerService.update(req.body);
 
     if (!updatedCustomer) {
       return res.badRequest({
@@ -36,9 +32,7 @@ class CustomerController {
   }
 
   async delete(req, res) {
-    const data = req.query;
-
-    const deletedCustomer = await CustomerService.delete(data);
+    const deletedCustomer = await CustomerService.delete(req.query);
 
     if (!deletedCustomer) {
       return res.badRequest({
