@@ -19,13 +19,15 @@ export default async (req, res, next) => {
     })
   );
 
-  const schemaServicesProvided = yup
+  const schemaServicesOfASaleService = yup
     .array()
     .required()
     .of(
       yup.object().shape({
-        Id: yup.number().required().min(1),
-        LaborValue: yup.number().required(),
+        IdService: yup.number().required().min(1),
+        ServiceValue: yup.number().required(),
+        DiscountPercentage: yup.number(),
+        DiscountValue: yup.number(),
       })
     );
 
@@ -38,7 +40,7 @@ export default async (req, res, next) => {
       req.body.ItemsServiceSale
     );
 
-    const validateServiceProvided = await schemaServicesProvided.validate(
+    const validateServiceProvided = await schemaServicesOfASaleService.validate(
       req.body.ServicesProvided
     );
 
