@@ -4,9 +4,9 @@ class ProductSaleController {
   async create(req, res) {
     const productSale = await ProductSaleService.create(req.body);
 
-    if (!productSale) {
+    if (!productSale.status) {
       return res.badRequest({
-        message: 'Ocorreu um erro ao tentar cadastrar uma venda de produto',
+        message: productSale.message,
       });
     }
 

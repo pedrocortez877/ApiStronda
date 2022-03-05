@@ -1,25 +1,91 @@
 import ServiceSaleRepository from '../Repositories/ServiceSaleRepository.js';
+import ServicesOfASaleService from './ServicesOfASaleService.js';
+import ProductsOfAServiceSaleService from './ProductsOfAServiceSaleService.js';
+import StockService from './StockService.js';
 
 class ServiceSaleService {
   async create(data) {
-    const { ServiceSale, ItemsServiceSale, ServiceProvided } = data;
+    const { ServiceSale, ProductsOfThisSale, ServicesOfThisSale } = data;
+    const { DiscountValue } = ServiceSale;
 
-    ServiceSale.ServiceSaleValue = ServiceProvided.LaborValue;
+    ServiceSale.ServiceSaleValue = 0;
+    ServiceSale.ProductsServiceSaleValue = 0;
+    ServiceSale.GrossValue = 0;
+    ServiceSale.LiquidValue = 0;
 
-    if (ItemsServiceSale) {
-      ItemsServiceSale.forEach((item) => {
+    ServicesOfThisSale.forEach((item) => {
+      const { ServiceValue } = item;
+      ServiceSale.ServiceSaleValue += ServiceValue;
+      ServiceSale.GrossValue += ServiceValue;
+    });
+
+    if (ProductsOfThisSale) {
+      ProductsOfThisSale.forEach((item) => {
         const { Quantity, ProductValue } = item;
-        ServiceSale.ServiceSaleValue += ProductValue * Quantity;
+        ServiceSale.ProductsServiceSaleValue += ProductValue * Quantity;
+        ServiceSale.GrossValue += ProductValue * Quantity;
       });
     }
 
-    console.log(ServiceSale);
-    console.log(ItemsServiceSale);
-    console.log(ServiceProvided);
+    ServiceSale.LiquidValue = ServiceSale.GrossValue - DiscountValue;
 
-    // const serviceSale = ServiceSaleRepository.create(ServiceSale);
+    const serviceSale = await ServiceSaleRepository.create(ServiceSale);
 
-    return ServiceSale;
+    if (!serviceSale) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao cadastrar a venda de serviço',
+      };
+    }
+
+    ServicesOfThisSale.forEach((service) => {
+      service.IdSale = Number(serviceSale.Id);
+    });
+
+    const servicesOfThisSale = await ServicesOfASaleService.create(
+      ServicesOfThisSale
+    );
+
+    if (!servicesOfThisSale) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao cadastrar os serviços desta venda',
+      };
+    }
+
+    if (!ProductsOfThisSale) {
+      return {
+        status: true,
+      };
+    }
+
+    ProductsOfThisSale.forEach((product) => {
+      product.IdSale = Number(serviceSale.Id);
+    });
+
+    const productsOfThisSale = await ProductsOfAServiceSaleService.create(
+      ProductsOfThisSale
+    );
+
+    if (!productsOfThisSale) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao cadastrar os produtos desta venda',
+      };
+    }
+
+    const updateStock = await StockService.create(productsOfThisSale);
+
+    if (!updateStock) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar atualizar o estoque',
+      };
+    }
+
+    return {
+      status: true,
+    };
   }
 
   async read() {

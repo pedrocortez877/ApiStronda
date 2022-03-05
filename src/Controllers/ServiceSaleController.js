@@ -4,9 +4,9 @@ class ServiceSaleController {
   async create(req, res) {
     const serviceSale = await ServiceSaleService.create(req.body);
 
-    if (!serviceSale) {
+    if (!serviceSale.status) {
       return res.badRequest({
-        message: 'Ocorreu um erro ao tentar cadastrar uma venda de serviço',
+        message: serviceSale.message,
       });
     }
 

@@ -11,6 +11,8 @@ import ServiceSale from './ServiceSale.js';
 import Stock from './Stock.js';
 import Suppliers from './Suppliers.js';
 import Users from './Users.js';
+import ServicesProvided from './ServicesProvided.js';
+import ServicesOfASaleService from './ServicesOfASaleService.js';
 
 const Models = [
   Addresses,
@@ -23,6 +25,8 @@ const Models = [
   Purchases,
   PurchaseItems,
   ServiceSale,
+  ServicesOfASaleService,
+  ServicesProvided,
   Stock,
   Suppliers,
   Users,

@@ -1,4 +1,4 @@
-import ServicesOfASaleServiceRepository from '../Repositories/ServicesOfASaleServiceRepository';
+import ServicesOfASaleServiceRepository from '../Repositories/ServicesOfASaleServiceRepository.js';
 
 class ServicesOfASaleService {
   async create(data) {
