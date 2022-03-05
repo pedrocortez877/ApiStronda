@@ -1,7 +1,7 @@
 import db from '../Configs/Sequelize.js';
 
 import Products from './Products.js';
-import ProductSale from './ProductSale.js';
+import ServiceSale from './ServiceSale.js';
 
 const { sequelize } = db;
 const { Model, DataTypes } = db.Sequelize;
@@ -51,13 +51,13 @@ ProductsOfAService.Products = ProductsOfAService.belongsTo(Products, {
   },
 });
 
-ProductsOfAService.ProductSale = ProductsOfAService.belongsTo(ProductSale, {
+ProductsOfAService.ServiceSale = ProductsOfAService.belongsTo(ServiceSale, {
   foreignKey: {
     name: 'IdSale',
   },
 });
 
-ProductSale.ProductsOfAService = ProductSale.hasOne(ProductsOfAService, {
+ServiceSale.ProductsOfAService = ServiceSale.hasOne(ProductsOfAService, {
   foreignKey: {
     name: 'IdSale',
   },
