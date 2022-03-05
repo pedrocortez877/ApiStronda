@@ -2,7 +2,9 @@ import ServicesOfASaleService from '../Models/ServicesOfASaleService.js';
 
 class ServicesOfASaleServiceRepository {
   async create(data) {
-    const servicesOfASaleService = await ServicesOfASaleService.create(data);
+    const servicesOfASaleService = await ServicesOfASaleService.bulkCreate(
+      data
+    );
     return servicesOfASaleService;
   }
 
