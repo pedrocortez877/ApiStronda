@@ -14,13 +14,25 @@ ProductSale.init(
       type: DataTypes.BIGINT,
       autoIncrement: true,
     },
-    TotalPrice: {
+    LiquidValue: {
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
     Invoice: {
       allowNull: false,
       type: DataTypes.BOOLEAN,
+    },
+    GrossValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
+    DiscountValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
+    DiscountPercentage: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
   },
   {

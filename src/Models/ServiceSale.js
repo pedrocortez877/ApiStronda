@@ -23,9 +23,21 @@ ServiceSale.init(
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
-    TotalValue: {
+    GrossValue: {
       allowNull: false,
       type: DataTypes.DECIMAL,
+    },
+    LiquidValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
+    DiscountValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
+    DiscountPercentage: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
     Invoice: {
       allowNull: false,
