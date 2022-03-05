@@ -19,6 +19,14 @@ ServiceSale.init(
       allowNull: false,
       type: DataTypes.DECIMAL,
     },
+    ProductsServiceSaleValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
+    TotalValue: {
+      allowNull: false,
+      type: DataTypes.DECIMAL,
+    },
     Invoice: {
       allowNull: false,
       type: DataTypes.BOOLEAN,
