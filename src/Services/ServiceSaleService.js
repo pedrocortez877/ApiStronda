@@ -2,8 +2,24 @@ import ServiceSaleRepository from '../Repositories/ServiceSaleRepository.js';
 
 class ServiceSaleService {
   async create(data) {
-    const serviceSale = await ServiceSaleRepository.create(data);
-    return serviceSale;
+    const { ServiceSale, ItemsServiceSale, ServiceProvided } = data;
+
+    ServiceSale.ServiceSaleValue = ServiceProvided.LaborValue;
+
+    if (ItemsServiceSale) {
+      ItemsServiceSale.forEach((item) => {
+        const { Quantity, ProductValue } = item;
+        ServiceSale.ServiceSaleValue += ProductValue * Quantity;
+      });
+    }
+
+    console.log(ServiceSale);
+    console.log(ItemsServiceSale);
+    console.log(ServiceProvided);
+
+    // const serviceSale = ServiceSaleRepository.create(ServiceSale);
+
+    return ServiceSale;
   }
 
   async read() {

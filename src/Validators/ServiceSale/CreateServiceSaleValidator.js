@@ -5,10 +5,8 @@ export default async (req, res, next) => {
     .object()
     .required()
     .shape({
-      IdCustomer: yup.number().min(1).required(),
-      ServiceSaleValue: yup.number().required(),
+      IdCustomer: yup.number().required().min(1),
       Invoice: yup.boolean(),
-      IdServiceProvided: yup.number().min(1).required(),
     });
 
   const schemaProductsServiceSale = yup.array().of(
@@ -21,16 +19,35 @@ export default async (req, res, next) => {
     })
   );
 
+  const schemaServicesProvided = yup
+    .array()
+    .required()
+    .of(
+      yup.object().shape({
+        Id: yup.number().required().min(1),
+        LaborValue: yup.number().required(),
+      })
+    );
+
   try {
     const validateServiceSale = await schemaServiceSale.validate(
-      req.body.ProductSale
+      req.body.ServiceSale
     );
 
     const validateItemsServiceSale = await schemaProductsServiceSale.validate(
-      req.body.ItemsProductSale
+      req.body.ItemsServiceSale
     );
 
-    if (validateServiceSale && validateItemsServiceSale) next();
+    const validateServiceProvided = await schemaServicesProvided.validate(
+      req.body.ServicesProvided
+    );
+
+    if (
+      validateServiceSale &&
+      validateItemsServiceSale &&
+      validateServiceProvided
+    )
+      next();
   } catch (e) {
     return res.badRequest({ message: e.errors.pop() });
   }
