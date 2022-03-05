@@ -14,8 +14,6 @@ export default async (req, res, next) => {
       Quantity: yup.number().required().min(1),
       IdProduct: yup.number().required().min(1),
       ProductValue: yup.number().required(),
-      DiscountPercentage: yup.number(),
-      DiscountValue: yup.number(),
     })
   );
 
@@ -26,8 +24,6 @@ export default async (req, res, next) => {
       yup.object().shape({
         IdService: yup.number().required().min(1),
         ServiceValue: yup.number().required(),
-        DiscountPercentage: yup.number(),
-        DiscountValue: yup.number(),
       })
     );
 
@@ -37,11 +33,11 @@ export default async (req, res, next) => {
     );
 
     const validateItemsServiceSale = await schemaProductsServiceSale.validate(
-      req.body.ItemsServiceSale
+      req.body.ProductsOfThisSale
     );
 
     const validateServiceProvided = await schemaServicesOfASaleService.validate(
-      req.body.ServicesProvided
+      req.body.ServicesOfThisSale
     );
 
     if (

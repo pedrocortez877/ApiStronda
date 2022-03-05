@@ -23,14 +23,6 @@ ProductsOfASale.init(
       allowNull: false,
       type: DataTypes.NUMBER,
     },
-    DiscountPercentage: {
-      allowNull: false,
-      type: DataTypes.NUMBER,
-    },
-    DiscountValue: {
-      allowNull: false,
-      type: DataTypes.DECIMAL,
-    },
   },
   {
     sequelize,

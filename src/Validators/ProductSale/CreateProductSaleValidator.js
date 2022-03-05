@@ -11,8 +11,6 @@ export default async (req, res, next) => {
       Quantity: yup.number().required().min(1),
       IdProduct: yup.number().required().min(1),
       ProductValue: yup.number().required(),
-      DiscountPercentage: yup.number(),
-      DiscountValue: yup.number(),
     })
   );
 
