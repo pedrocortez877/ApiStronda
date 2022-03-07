@@ -74,7 +74,7 @@ class ServiceSaleService {
       };
     }
 
-    const updateStock = await StockService.create(productsOfThisSale);
+    const updateStock = await StockService.update(productsOfThisSale, false);
 
     if (!updateStock) {
       return {

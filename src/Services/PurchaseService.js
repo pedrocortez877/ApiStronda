@@ -37,7 +37,7 @@ class PurchaseService {
       };
     }
 
-    const updateStock = StockService.create(createPurchaseItems);
+    const updateStock = StockService.update(createPurchaseItems, true);
 
     if (!updateStock) {
       return {
