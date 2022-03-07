@@ -28,6 +28,12 @@ class SupplierRepository {
     const deletedStock = await Stock.destroy({ where: { Id } });
     return deletedStock;
   }
+
+  async findOne(data) {
+    const { IdProduct } = data;
+    const stock = await Stock.findOne({ where: { IdProduct } });
+    return stock;
+  }
 }
 
 export default new SupplierRepository();
