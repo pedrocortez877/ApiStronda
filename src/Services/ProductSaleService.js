@@ -28,7 +28,7 @@ class ProductSaleService {
     }
 
     ItemsProductSale.forEach((item) => {
-      item.IdSale = productSale.Id;
+      item.IdSale = Number(productSale.Id);
     });
 
     const itemsProductSale = await ProductsOfASaleProductService.create(
@@ -42,7 +42,7 @@ class ProductSaleService {
       };
     }
 
-    const updateStock = StockService.create(itemsProductSale);
+    const updateStock = await StockService.update(itemsProductSale, false);
 
     if (!updateStock) {
       return {
