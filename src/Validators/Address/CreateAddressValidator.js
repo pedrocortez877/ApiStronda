@@ -8,6 +8,7 @@ export default (req, res, next) => {
     City: yup.string().required(),
     State: yup.string().required(),
     Complement: yup.string().required(),
+    ZipCode: yup.number().required().min(1),
   });
 
   return schema

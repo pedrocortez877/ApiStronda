@@ -36,6 +36,10 @@ Addresses.init(
       allowNull: false,
       type: DataTypes.STRING(300),
     },
+    ZipCode: {
+      allowNull: false,
+      type: DataTypes.NUMBER,
+    },
   },
   {
     sequelize,
