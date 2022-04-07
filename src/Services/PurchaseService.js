@@ -1,7 +1,9 @@
 import PurchaseRepository from '../Repositories/PurchaseRepository.js';
+
 import PurchaseItemsService from './PurchaseItemsService.js';
 import StockService from './StockService.js';
 import ProductService from './ProductService.js';
+import TransactionsService from './TransactionsService.js';
 
 class PurchaseService {
   async create(data) {
@@ -43,6 +45,20 @@ class PurchaseService {
       return {
         status: false,
         message: 'Ocorreu um erro ao tentar atualizar o estoque',
+      };
+    }
+
+    const saveTransaction = await TransactionsService.create({
+      IdMovement: Number(purchase.Id),
+      Value: Purchase.TotalPrice,
+      Sale: false,
+      Date: new Date(),
+    });
+
+    if (!saveTransaction) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar registrar a transação',
       };
     }
 
