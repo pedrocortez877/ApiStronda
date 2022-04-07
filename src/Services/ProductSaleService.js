@@ -54,12 +54,10 @@ class ProductSaleService {
 
     const saveTransaction = await TransactionsService.create({
       IdMovement: Number(productSale.Id),
-      Value: ProductSale.GrossValue,
+      Value: ProductSale.LiquidValue,
       Sale: true,
       Date: new Date(),
     });
-
-    console.log(saveTransaction);
 
     if (!saveTransaction) {
       return {
