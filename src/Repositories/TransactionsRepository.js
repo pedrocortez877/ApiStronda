@@ -24,13 +24,6 @@ class TransactionsRepository {
     const deletedTransactions = await Transactions.destroy({ where: { Id } });
     return deletedTransactions;
   }
-
-  async findOrCreate(name) {
-    const transactions = await Transactions.findOrCreate({
-      where: { Name: name },
-    });
-    return transactions[0].dataValues;
-  }
 }
 
 export default new TransactionsRepository();
