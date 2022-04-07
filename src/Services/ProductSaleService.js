@@ -2,6 +2,7 @@ import ProductSaleRepository from '../Repositories/ProductSaleRepository.js';
 
 import ProductsOfASaleProductService from './ProductsOfASaleProductsService.js';
 import StockService from './StockService.js';
+import TransactionsService from './TransactionsService.js';
 
 class ProductSaleService {
   async create(data) {
@@ -48,6 +49,22 @@ class ProductSaleService {
       return {
         status: false,
         message: 'Ocorreu um erro ao tentar atualizar o estoque',
+      };
+    }
+
+    const saveTransaction = await TransactionsService.create({
+      IdMovement: Number(productSale.Id),
+      Value: ProductSale.GrossValue,
+      Sale: true,
+      Date: new Date(),
+    });
+
+    console.log(saveTransaction);
+
+    if (!saveTransaction) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar registrar a transação',
       };
     }
 
