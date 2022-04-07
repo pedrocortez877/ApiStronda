@@ -1,7 +1,9 @@
 import ServiceSaleRepository from '../Repositories/ServiceSaleRepository.js';
+
 import ServicesOfASaleService from './ServicesOfASaleService.js';
 import ProductsOfAServiceSaleService from './ProductsOfAServiceSaleService.js';
 import StockService from './StockService.js';
+import TransactionsService from './TransactionsService.js';
 
 class ServiceSaleService {
   async create(data) {
@@ -80,6 +82,20 @@ class ServiceSaleService {
       return {
         status: false,
         message: 'Ocorreu um erro ao tentar atualizar o estoque',
+      };
+    }
+
+    const saveTransaction = await TransactionsService.create({
+      IdMovement: Number(serviceSale.Id),
+      Value: ServiceSale.LiquidValue,
+      Sale: true,
+      Date: new Date(),
+    });
+
+    if (!saveTransaction) {
+      return {
+        status: false,
+        message: 'Ocorreu um erro ao tentar registrar a transação',
       };
     }
 
