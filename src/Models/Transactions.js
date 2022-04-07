@@ -12,7 +12,7 @@ Transactions.init(
       type: DataTypes.BIGINT,
       autoIncrement: true,
     },
-    IdMoviment: {
+    IdMovement: {
       allowNull: false,
       type: DataTypes.BIGINT,
     },
