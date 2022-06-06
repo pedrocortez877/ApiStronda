@@ -28,7 +28,7 @@ routes.use('/login', HttpResponses, UserRoutes);
 routes.use('/products', Auth, HttpResponses, ProductRoutes);
 
 // ROTAS DE MARCAS
-routes.use('/brands', Auth, HttpResponses, BrandRoutes);
+routes.use('/brands', HttpResponses, BrandRoutes);
 
 // ROTAS DE ENDERECOS
 routes.use('/addresses', Auth, HttpResponses, AddressRoutes);

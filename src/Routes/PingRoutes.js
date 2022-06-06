@@ -4,7 +4,7 @@ const routes = new Router();
 
 routes.get('/', (req, res) => {
   res.status(200).json({
-    date: new Date().toISOString(),
+    date: true,
     health: 'Ok',
   });
 });
